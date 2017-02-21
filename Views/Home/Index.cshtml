@@ -1,0 +1,58 @@
+@model mvcnewdojo.Models.User
+@{
+    ViewData["Title"] = "Home Page";
+}
+
+@* razor commenting
+@{
+        foreach(var values in @ViewBag.errors)
+        {
+            if(@values.Errors.Count > 0)
+            {
+                <p style="color: red">@values.Errors[0].ErrorMessage</p>
+            }
+        }
+}
+*@
+
+<h1>User Login</h1>
+<form asp-controller="Home" asp-action="Index" method="post">
+    <p><span asp-validation-for="firstname"> </span></p>
+    <label asp-for="firstname">First Name </label>
+    <input asp-for="firstname" />
+   <br/>
+   <p><span asp-validation-for="lastname"> </span></p> 
+    <p>  
+        <label asp-for="lastname">Last Name</label>
+        <input  asp-for="lastname" >
+    </p>
+   <br/>
+   <p><span asp-validation-for="age"> </span></p> 
+    <p>  
+        <label asp-for="age">Age</label>
+        <input asp-for="age">
+    </p>
+   <br/>
+   <p><span asp-validation-for="email"> </span></p> 
+    <p>  
+        <label asp-for="email">Email</label>
+        <input asp-for="email"
+            data-val = "true" 
+            type="email" 
+            data-val-email="The Email address field is not valid email address. please try again."
+            data-val-required="The email address is required.">
+    </p>
+    <br/>
+   <p><span asp-validation-for="password1"> </span></p> 
+    <p>  
+        <label asp-for="password1">Password</label>
+        <input asp-for="password1" type="password">
+    </p>
+    <br/>
+   <p><span asp-validation-for="password2"> </span></p> 
+    <p>  
+        <label asp-for="password2">Re-type Password</label>
+        <input asp-for="password2" type="password">
+    </p>
+   <p><input type="submit" name="submit" value="Add New User"></p>
+</form>

@@ -1,0 +1,23 @@
+@model mvcnewdojo.Models.BlogUser
+@{
+    ViewData["Title"] = "Quoting Dojo";
+}
+
+<h1>Welcome to Quoting Dojo</h1>
+<div>
+    <form asp-controller="Blog" asp-action="Index" method="post">
+    <p><span asp-validation-for="BlogUserName"> </span></p>
+    <label asp-for="BlogUserName">Your Name </label>
+    <input asp-for="BlogUserName" />
+   <br/>
+   <p><span asp-validation-for="BlogUserQuote"> </span></p> 
+    <p>  
+        <label asp-for="BlogUserQuote">Your Quote</label>
+        <textarea asp-for="BlogUserQuote"></textarea>
+    </p>
+    <p><input type="submit" name="submit" value="Add New User"></p>
+</form>
+</div>
+<div>
+Blog User Name: @ViewBag.Users.firstname
+</div>
